@@ -13,7 +13,7 @@ function find(){
     return db('users').select('id', 'username', 'password', 'departments');
 }
 
-function findBy({filter}){
+function findBy(filter){
     return db('users')
     .select('id', 'username', 'password', 'departments')
     .where(filter);
@@ -26,7 +26,8 @@ function findById(id){
     .first();
 }
 
-function add(user){
-    return db('users')
-    .insert(user, 'id')
+async function add(user){
+    const [id] = await db('users').insert(user, 'id')
+    
+    return findById(id);
 }
