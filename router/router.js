@@ -1,7 +1,7 @@
 const express = require('express');
 const authRouter = require('../auth/auth-router');
 const userRouter =  require('../users/user-router');
-const restricted  = require('../middlewear/restricted-middlewear');
+const restricted  = require('../middlewear/restricted-token.js');
 const router =  express.Router();
 
 
